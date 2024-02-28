@@ -17,10 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from planner.views import planner, show_tasks
+from planner.views import planner, show_tasks, by_category, main_page
 
 urlpatterns = [
+    path('', main_page),
     path('admin/', admin.site.urls),
     path('planner/', planner),
-    path('tasks/', show_tasks)
+    path('tasks/<int:category_id>/', by_category)
 ]
